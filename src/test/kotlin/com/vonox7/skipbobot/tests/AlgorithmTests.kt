@@ -1,8 +1,6 @@
 package com.vonox7.skipbobot.tests
 
-import com.vonox7.skipbobot.DiscardPile
-import com.vonox7.skipbobot.Game
-import com.vonox7.skipbobot.NumberCard
+import com.vonox7.skipbobot.*
 import com.vonox7.skipbobot.strategies.BaseStrategy
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -51,11 +49,17 @@ class AlgorithmTests {
         cardsToPlay.forEach { cardToPlay ->
             val cardsNotToPlay = ((1..12).map { it } - cardToPlay.value).map { NumberCard(it) }
             cardsNotToPlay.forEach { cardNotToPlay ->
-                assertFalse(pile.canPlayCard(cardNotToPlay))
+                assertFalse(pile.canPlayCard(cardNotToPlay), "$cardNotToPlay -!-> $pile")
             }
 
-            assertTrue(pile.canPlayCard(cardToPlay))
+            assertTrue(pile.canPlayCard(cardToPlay), "$cardToPlay --> $pile")
+            pile.playCard(cardToPlay, EndlessTestCardSource())
             assertEquals(pile.topCardValue, cardToPlay.value)
+        }
+    }
+
+    class EndlessTestCardSource : CardSource {
+        override fun removeCard(card: Card, endOfTurn: Boolean) {
         }
     }
 }

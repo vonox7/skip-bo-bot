@@ -10,7 +10,7 @@ class DiscardPile(private val game: Game) : Pile {
         require(canPlayCard(card)) {
             "$card can not be played on $this"
         }
-        topCardValue = if (topCardValue == 12) 1 else topCardValue + 1
+        topCardValue = (topCardValue % 12) + 1
 
         if (playedCards.count() == 12) {
             game.addCardsToReserveDeck(playedCards)
