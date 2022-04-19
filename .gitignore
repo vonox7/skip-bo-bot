@@ -1,0 +1,49 @@
+# IntelliJ IDEA
+.idea/*
+!.idea/runConfigurations
+!.idea/runConfigurations/*
+!.idea/vcs.xml
+!.idea/copyright
+!.idea/copyright/*
+!.idea/codeStyles
+!.idea/codeStyles/*
+!.idea/fileTemplates/
+!.idea/fileTemplates/*
+!.idea/codeStyleSettings.xml
+!.idea/icon.png
+out
+*.iml
+
+*.versionsBackup
+*.releaseBackup
+release.properties
+local.properties
+*.swp
+
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# OS-specific
+Thumbs.db
+.DS_Store
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Gradle files
+.gradle/
+.gradletasknamecache
+build/
+/*/build/
+!gradle-wrapper.jar
+
+# Log Files
+*.log
