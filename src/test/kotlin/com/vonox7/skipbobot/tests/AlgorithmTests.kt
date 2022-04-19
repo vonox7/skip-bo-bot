@@ -12,22 +12,22 @@ class AlgorithmTests {
     @Test
     fun cardsBetweenWithoutWrap() {
         val baseStrategy = BaseStrategy()
-        assertEquals(listOf(), baseStrategy.cardsBetween(1, 1))
+        assertEquals((2..12).map { it }, baseStrategy.cardsBetween(1, 1))
         assertEquals(listOf(), baseStrategy.cardsBetween(1, 2))
         assertEquals(listOf(2), baseStrategy.cardsBetween(1, 3))
         assertEquals(listOf(2, 3), baseStrategy.cardsBetween(1, 4))
 
-        assertEquals(listOf(), baseStrategy.cardsBetween(2, 2))
+        assertEquals((3..12).map { it } + listOf(1), baseStrategy.cardsBetween(2, 2))
         assertEquals(listOf(), baseStrategy.cardsBetween(2, 3))
         assertEquals(listOf(3), baseStrategy.cardsBetween(2, 4))
-        assertEquals(listOf(), baseStrategy.cardsBetween(11, 11))
+        assertEquals(listOf(12) + (1..10).map { it }, baseStrategy.cardsBetween(11, 11))
         assertEquals(listOf(), baseStrategy.cardsBetween(10, 11))
         assertEquals(listOf(10), baseStrategy.cardsBetween(9, 11))
 
         assertEquals(listOf(11), baseStrategy.cardsBetween(10, 12))
         assertEquals(listOf(), baseStrategy.cardsBetween(11, 12))
-        assertEquals(listOf(), baseStrategy.cardsBetween(12, 12))
-        assertEquals((1..12).map { it }, baseStrategy.cardsBetween(1, 12))
+        assertEquals((1..11).map { it }, baseStrategy.cardsBetween(12, 12))
+        assertEquals((2..11).map { it }, baseStrategy.cardsBetween(1, 12))
     }
 
     @Test

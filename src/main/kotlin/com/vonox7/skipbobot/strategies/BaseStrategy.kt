@@ -5,9 +5,11 @@ import com.vonox7.skipbobot.*
 // Basic strategy with useful helper functions
 open class BaseStrategy : Strategy() {
 
-    // start + end exclusive
+    // start + end exclusive.
+    // end == start -> 11 numbers.
+    // end == start + 1 -> 0 numbers.
     fun cardsBetween(start: Int, end: Int): List<Int> {
-        return if (start + 1 < end) {
+        return if (start < end) {
             (start + 1 until end).map { it }
         } else {
             (start + 1..12).map { it } + (1 until end).map { it }
