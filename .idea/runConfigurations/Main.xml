@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main" type="JetRunConfigurationType" singleton="false">
+    <option name="MAIN_CLASS_NAME" value="com.vonox7.skipbobot.MainKt" />
+    <module name="skip-bo-bot.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
