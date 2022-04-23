@@ -1,7 +1,7 @@
 package com.vonox7.skipbobot.tests
 
 import com.vonox7.skipbobot.*
-import com.vonox7.skipbobot.strategies.BaseStrategy
+import com.vonox7.skipbobot.strategies.vonox7.BaseStrategy
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

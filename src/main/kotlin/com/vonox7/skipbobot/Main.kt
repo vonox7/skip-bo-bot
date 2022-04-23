@@ -1,21 +1,23 @@
 package com.vonox7.skipbobot
 
-import com.vonox7.skipbobot.strategies.*
+import com.vonox7.skipbobot.strategies.ExampleStrategy
+import com.vonox7.skipbobot.strategies.vonox7.*
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.reflect.KClass
 
 fun main() {
+    // Add here your own strategies
     val strategies: Set<KClass<out Strategy>> = setOf(
+        ExampleStrategy::class,
         BaseStrategyWithHelperPile::class,
-        //PlayJokerWhenNeededStrategy::class,
-        //PlayJokerHelperWhenNeededStrategy::class,
         StraightOrSameBaseStrategy::class,
         SameOrStraightBaseStrategy::class,
         StraightOrSameJokerWhenNeededStrategy::class,
         SameOrStraightJokerWhenNeededStrategy::class,
-        //StraightOrSameJokerHelperWhenNeededStrategy::class,
-        //SameOrStraightJokerHelperWhenNeededStrategy::class,
     )
+
+    // Rounds between two strategies. Adapt this depending on your CPU and strategy count.
+    val battleRounds = 10_000
 
     val winningStrategies = strategies.associateWith { AtomicInteger(0) }
 
@@ -26,7 +28,7 @@ fun main() {
             if (currentStrategies.any { it != BaseStrategy::class }) {
                 val strategyWins = StrategyBattle(currentStrategies.map {
                     it.java.constructors.first().newInstance() as Strategy
-                }).battle(10_000)
+                }).battle(battleRounds)
                 strategyWins.forEach { (strategy, wins) ->
                     winningStrategies[strategy::class]!!.addAndGet(wins)
                 }

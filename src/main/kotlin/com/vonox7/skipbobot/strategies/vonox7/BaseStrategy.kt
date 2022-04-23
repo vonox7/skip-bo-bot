@@ -1,4 +1,4 @@
-package com.vonox7.skipbobot.strategies
+package com.vonox7.skipbobot.strategies.vonox7
 
 import com.vonox7.skipbobot.*
 

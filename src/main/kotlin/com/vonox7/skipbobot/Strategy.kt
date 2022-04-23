@@ -6,6 +6,7 @@ abstract class Strategy {
     abstract fun play(gameState: StrategyGameState)
     abstract fun getResult(gameState: StrategyGameState): PlayResult
 
+    // The game state what the current player can observe
     class StrategyGameState(
         val playerDeck: PlayerDeck,
         val playerHelperPiles: List<HelperPile>,
@@ -14,8 +15,10 @@ abstract class Strategy {
         val gameTick: Int,
         val otherPlayers: List<OtherPlayer>,
     ) {
+        // TODO pass here un-modifiable PlayerDeck & HelperPile, so a strategy can't cheat
         class OtherPlayer(val playerDeck: PlayerDeck, val playerHelperPiles: List<HelperPile>)
     }
 
+    // Play at the end of the turn a hand card to the given helper pile
     class PlayResult(val helperPile: HelperPile, val handCard: Card)
 }
