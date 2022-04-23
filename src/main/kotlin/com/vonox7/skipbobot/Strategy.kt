@@ -8,10 +8,10 @@ abstract class Strategy {
 
     // The game state what the current player can observe
     class StrategyGameState(
-        val playerDeck: PlayerDeck,
-        val playerHelperPiles: List<HelperPile>,
-        val playerHandCards: HandCards,
-        val discardPiles: List<DiscardPile>,
+        val playerDeck: PlayerDeck, // The cards you want to play to win
+        val playerHelperPiles: List<HelperPile>, // Your piles in front of you, where you put on 1 hand card per turn
+        val playerHandCards: HandCards, // Your hand cards (automatically refill when needed)
+        val discardPiles: List<DiscardPile>, // Center card piles, used by all players
         val gameTick: Int,
         val otherPlayers: List<OtherPlayer>,
     ) {
